@@ -1,12 +1,17 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
   const isHome = pathname === '/home'
+  const [contactInfo, setContactInfo] = useState<{ email?: string; phone?: string; instagram?: string; tokopedia?: string }>({})
+
+  useEffect(() => {
+    fetch('/api/contact-info').then(r => r.json()).then(setContactInfo).catch(() => {})
+  }, [])
 
   return (
     <>
@@ -110,10 +115,15 @@ export default function Navbar() {
           {/* Bottom */}
           <div style={{ position: 'absolute', bottom: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
             <div style={{ display: 'flex', gap: '16px' }}>
-              {['/images/email.png', '/images/facebook.png', '/images/whatsapp.png', '/images/instagram.png'].map((src, i) => (
-                <div key={i} style={{ width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+              {[
+                { src: '/images/email.png', href: contactInfo.email ? `mailto:${contactInfo.email}` : undefined },
+                { src: '/images/facebook.png', href: contactInfo.tokopedia || undefined },
+                { src: '/images/whatsapp.png', href: contactInfo.phone ? `https://wa.me/${contactInfo.phone.replace(/\D/g, '')}` : undefined },
+                { src: '/images/instagram.png', href: contactInfo.instagram || undefined },
+              ].map(({ src, href }, i) => (
+                <a key={i} href={href} target={href?.startsWith('mailto') ? undefined : '_blank'} rel="noopener noreferrer" style={{ width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
                   <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                </div>
+                </a>
               ))}
             </div>
             <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px' }}>@2021 homlab. All Rights Reserved</div>

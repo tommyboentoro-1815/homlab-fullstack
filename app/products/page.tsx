@@ -35,9 +35,6 @@ function ProductCard({ product }: { product: IProduct }) {
             <div className="font-mulish color-primary font-product-body">
               {product.description.length > 80 ? product.description.slice(0, 80) + '...' : product.description}
             </div>
-            <div className="font-mulish color-primary" style={{ marginTop: '8px', fontSize: '14px', fontWeight: '500' }}>
-              Rp {product.price.toLocaleString('id-ID')}
-            </div>
           </div>
         </div>
       </Link>
@@ -71,7 +68,7 @@ export default async function Products() {
             <div className="d-flex">
               {row.map(p => <ProductCard key={p._id} product={p} />)}
             </div>
-            <br />
+            <br /><br /><br />
           </div>
         ))
       )}

@@ -1,6 +1,18 @@
 import Link from 'next/link'
+import { connectDB } from '@/lib/mongodb'
+import { ContactInfo } from '@/models/ContactInfo'
 
-export default function Footer() {
+async function getContactInfo() {
+  await connectDB()
+  const info = await ContactInfo.findOne().lean() as { email?: string; phone?: string; instagram?: string; tokopedia?: string } | null
+  return info ?? {}
+}
+
+export default async function Footer() {
+  const { email, phone, instagram, tokopedia } = await getContactInfo()
+
+  const whatsappNumber = phone ? phone.replace(/\D/g, '') : ''
+
   return (
     <div>
       <div className="wrapper-footer">
@@ -27,10 +39,18 @@ export default function Footer() {
         <div className="d-flex justify-content-between align-items-center font-mulish color-white footer-2-container text-footer-2">
           <div>@2021 homlab, All Rights Reserved</div>
           <div className="gap-socmed-logo d-flex">
-            <div><img src="/images/email.png" alt="" /></div>
-            <div><img src="/images/facebook.png" alt="" /></div>
-            <div><img src="/images/whatsapp.png" alt="" /></div>
-            <div><img src="/images/instagram.png" alt="" /></div>
+            <a href={email ? `mailto:${email}` : undefined}>
+              <img src="/images/email.png" alt="Email" />
+            </a>
+            <a href={tokopedia || undefined} target="_blank" rel="noopener noreferrer">
+              <img src="/images/facebook.png" alt="Tokopedia" />
+            </a>
+            <a href={whatsappNumber ? `https://wa.me/${whatsappNumber}` : undefined} target="_blank" rel="noopener noreferrer">
+              <img src="/images/whatsapp.png" alt="WhatsApp" />
+            </a>
+            <a href={instagram || undefined} target="_blank" rel="noopener noreferrer">
+              <img src="/images/instagram.png" alt="Instagram" />
+            </a>
           </div>
         </div>
       </div>
