@@ -41,7 +41,7 @@ export default function JumbotronSlider({ images }: { images: string[] }) {
         {images.map((_, i) => (
           <img
             key={i}
-            src={i === current ? '/images/Egg-icon-selected.png' : '/images/Egg-icon.png'}
+            src={i === current ? '/images/egg-icon-selected.png' : '/images/egg-icon.png'}
             alt=""
             onClick={() => setCurrent(i)}
             style={{ width: '40px', height: '40px', cursor: 'pointer', objectFit: 'contain', transform: i === current ? 'scale(1.4)' : 'scale(1)', transition: 'transform 0.2s ease' }}
