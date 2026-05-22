@@ -26,7 +26,7 @@ export default function ArchiveSlider({ articles }: { articles: IArticle[] }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
 
       {/* Images row — counter uses col-1 to match paragraph indent above */}
-      <div className="d-flex" style={{ height: '420px', alignItems: 'center' }}>
+      <div className="d-flex" style={{ height: '480px', alignItems: 'center' }}>
 
         {/* Counter — same col-1 width + 32px right margin as line-home-body above */}
         <div className="col-1" style={{ flexShrink: 0, marginRight: '32px' }}>
@@ -92,14 +92,14 @@ export default function ArchiveSlider({ articles }: { articles: IArticle[] }) {
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%)' }} />
                 <div style={{ position: 'absolute', bottom: '16px', left: '16px' }}>
-                  <div className="font-asul" style={{ color: 'white', fontSize: '14px', fontWeight: '400', lineHeight: '1.3', maxWidth: '180px' }}>
+                  {/* <div className="font-asul" style={{ color: 'white', fontSize: '14px', fontWeight: '400', lineHeight: '1.3', maxWidth: '180px' }}>
                     {article.title}
-                  </div>
+                  </div> */}
                 </div>
                 <div style={{ position: 'absolute', bottom: '16px', right: '16px' }}>
-                  <div className="font-mulish" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '11px', letterSpacing: '1px' }}>
+                  {/* <div className="font-mulish" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '11px', letterSpacing: '1px' }}>
                     {article.date}
-                  </div>
+                  </div> */}
                 </div>
               </Link>
             ))}
