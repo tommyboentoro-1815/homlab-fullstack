@@ -91,16 +91,6 @@ export default function ArchiveSlider({ articles }: { articles: IArticle[] }) {
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%)' }} />
-                <div style={{ position: 'absolute', bottom: '16px', left: '16px' }}>
-                  {/* <div className="font-asul" style={{ color: 'white', fontSize: '14px', fontWeight: '400', lineHeight: '1.3', maxWidth: '180px' }}>
-                    {article.title}
-                  </div> */}
-                </div>
-                <div style={{ position: 'absolute', bottom: '16px', right: '16px' }}>
-                  {/* <div className="font-mulish" style={{ color: 'rgba(255,255,255,0.8)', fontSize: '11px', letterSpacing: '1px' }}>
-                    {article.date}
-                  </div> */}
-                </div>
               </Link>
             ))}
           </div>
