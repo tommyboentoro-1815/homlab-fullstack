@@ -38,18 +38,18 @@ export default async function Footer() {
         </div>
         <div className="d-flex justify-content-between align-items-center font-mulish color-white footer-2-container text-footer-2">
           <div>@2021 homlab, All Rights Reserved</div>
-          <div className="gap-socmed-logo d-flex">
+          <div className="gap-socmed-logo d-flex align-items-center">
             <a href={email ? `mailto:${email}` : undefined}>
-              <img src="/images/email.png" alt="Email" />
+              <img src="/images/email.png" alt="Email" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
             </a>
             <a href={tokopedia || undefined} target="_blank" rel="noopener noreferrer">
-              <img src="/images/facebook.png" alt="Tokopedia" />
+              <img src="/images/tokopedia-icon.svg" alt="Tokopedia" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
             </a>
             <a href={whatsappNumber ? `https://wa.me/${whatsappNumber}` : undefined} target="_blank" rel="noopener noreferrer">
-              <img src="/images/whatsapp.png" alt="WhatsApp" />
+              <img src="/images/whatsapp.png" alt="WhatsApp" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
             </a>
             <a href={instagram || undefined} target="_blank" rel="noopener noreferrer">
-              <img src="/images/instagram.png" alt="Instagram" />
+              <img src="/images/instagram.png" alt="Instagram" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
             </a>
           </div>
         </div>

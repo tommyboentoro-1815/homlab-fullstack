@@ -117,12 +117,12 @@ export default function Navbar() {
             <div style={{ display: 'flex', gap: '16px' }}>
               {[
                 { src: '/images/email.png', href: contactInfo.email ? `mailto:${contactInfo.email}` : undefined },
-                { src: '/images/facebook.png', href: contactInfo.tokopedia || undefined },
+                { src: '/images/tokopedia-icon.svg', href: contactInfo.tokopedia || undefined },
                 { src: '/images/whatsapp.png', href: contactInfo.phone ? `https://wa.me/${contactInfo.phone.replace(/\D/g, '')}` : undefined },
                 { src: '/images/instagram.png', href: contactInfo.instagram || undefined },
               ].map(({ src, href }, i) => (
-                <a key={i} href={href} target={href?.startsWith('mailto') ? undefined : '_blank'} rel="noopener noreferrer" style={{ width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
-                  <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                <a key={i} href={href} target={href?.startsWith('mailto') ? undefined : '_blank'} rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                  <img src={src} alt="" style={{ width: '36px', height: '36px', objectFit: 'contain' }} />
                 </a>
               ))}
             </div>

@@ -15,7 +15,7 @@ export default function JumbotronSlider({ images }: { images: string[] }) {
   if (images.length === 0) return null
 
   return (
-    <div className="home-main-container">
+    <div className="home-main-container" style={{ backgroundColor: '#000' }}>
       {images.map((src, i) => (
         <img
           key={src}

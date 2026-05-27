@@ -6,7 +6,7 @@ export default function About() {
       <div className="container about-main-container">
         <div style={{ height: 'auto' }} className="d-flex">
           <div className="col-6 font-mulish color-primary">
-            <div className="about-heading font-asul ms-2">ABOUT US</div>
+            <div className="about-heading font-asul">ABOUT US</div>
             <div className="about-subheading font-asul" style={{ width: '65%', marginTop: '40px' }}>
               We produced artisanal biofabricated goods from hom with aesthetic and efficacy in mind.
               We always try to see how we can apply biomaterials in our everyday life. We believe the

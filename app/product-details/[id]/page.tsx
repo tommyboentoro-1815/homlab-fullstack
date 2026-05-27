@@ -53,11 +53,11 @@ export default async function ProductDetails({ params }: { params: { id: string 
         <br />
         <div className="font-asul pd-text-h1">Further Reading</div>
         <br /><br />
-        <div className="d-flex align-items-stretch" style={{ gap: '24px' }}>
+        <div className="d-flex align-items-center" style={{ gap: '24px' }}>
           {furtherArticles[0] && (
             <Link href={`/news-details/${furtherArticles[0]._id}`} style={{ textDecoration: 'none', width: '55%', flexShrink: 0, position: 'relative', height: '500px', display: 'block' }}>
               <div style={{ width: '100%', height: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img src={furtherArticles[0].imageUrls?.[0]} alt={furtherArticles[0].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={furtherArticles[0].imageUrls?.[0]} alt={furtherArticles[0].title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} className="further-reading-img" />
               </div>
               <div className="pd-text-reading-left pd-container-absolute-left font-asul color-white">
                 {furtherArticles[0].title.split(' ').slice(0, 4).join(' ')}
@@ -68,10 +68,8 @@ export default async function ProductDetails({ params }: { params: { id: string 
             </Link>
           )}
           {furtherArticles[1] && (
-            <Link href={`/news-details/${furtherArticles[1]._id}`} style={{ textDecoration: 'none', flex: 1, display: 'block' }}>
-              <div style={{ width: '100%', height: '500px', overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <img src={furtherArticles[1].imageUrls?.[0]} alt={furtherArticles[1].title} style={{ width: '100%', height: '400px', objectFit: 'cover' }} />
-              </div>
+            <Link href={`/news-details/${furtherArticles[1]._id}`} style={{ textDecoration: 'none', flex: 1, display: 'block', height: '400px', overflow: 'hidden' }}>
+              <img src={furtherArticles[1].imageUrls?.[0]} alt={furtherArticles[1].title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} className="further-reading-img" />
             </Link>
           )}
         </div>
